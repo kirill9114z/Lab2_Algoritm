@@ -17,15 +17,14 @@ public:
             return false;
         }
 
-        ListNode* slow = head; // Черепаха (двигается на 1 узел за шаг)
-        ListNode* fast = head; // Заяц (двигается на 2 узла за шаг)
+        ListNode* slow = head; 
+        ListNode* fast = head;
 
         // Пока не достигнем конца списка
         while (fast != nullptr && fast->next != nullptr) {
-            slow = slow->next;          // Черепаха делает один шаг
-            fast = fast->next->next;    // Заяц делает два шага
+            slow = slow->next;       
+            fast = fast->next->next;   
 
-            // Если указатели встретились - обнаружен цикл
             if (slow == fast) {
                 return true;
             }
@@ -50,7 +49,7 @@ public:
         while (current != nullptr && count < maxNodes) {
             std::cout << current->val;
 
-            // Проверяем, был ли узел уже посещен (для обнаружения цикла)
+            // Проверяем, был ли узел уже посещен
             if (visited.count(current)) {
                 std::cout << " -> [ЦИКЛ к узлу " << current->val << "]";
                 break;
@@ -130,7 +129,6 @@ int main() {
 
     std::cout << std::endl;
 
-    // Создаем список без цикла: 1 -> 2 -> 3 -> 4 -> 5
     std::cout << "=== Список без цикла ===" << std::endl;
     ListNode* head2 = new ListNode(1);
     head2->next = new ListNode(2);
